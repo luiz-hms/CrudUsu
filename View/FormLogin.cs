@@ -18,7 +18,7 @@ namespace CrudUsu.Interfaces
         {
             InitializeComponent();
             form1 = f;
-            
+            txtLogin.Focus();
         }
 
         private void btnLogar_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace CrudUsu.Interfaces
                 return;
             }
             string sql = "SELECT * FROM usuarios WHERE LOGIN_USUARIO = '" + usuarioLogin + "' AND SENHA_USUARIO = '" + usuarioSenha + "'";
-            dataTable = Db.Consulta(sql);
+            dataTable = MetodosClientes.Consulta(sql);
             if(dataTable.Rows.Count == 1)
             {
                 form1.lblAcesso.Text = dataTable.Rows[0].ItemArray[5].ToString();

@@ -24,7 +24,7 @@ namespace CrudUsu.Interfaces
 
         private void FormGestaoUsuarios_Load(object sender, EventArgs e)
         {
-            dgvUsuarios.DataSource = Db.CarregaGdvUsuario();
+            dgvUsuarios.DataSource = MetodosClientes.CarregaGdvUsuario();
             dgvUsuarios.Columns[0].Width = 85;
             dgvUsuarios.Columns[0].Width = 190;
         }
@@ -37,7 +37,7 @@ namespace CrudUsu.Interfaces
             {
                 DataTable dataTable = new DataTable();
                 string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
-                dataTable =  Db.BuscarDadosUsuario(vid);
+                dataTable = MetodosClientes.BuscarDadosUsuario(vid);
                 txtId.Text = dataTable.Rows[0].Field<Int64>("ID_USUARIO").ToString();
                 txtNomeUsuarioCadastro.Text = dataTable.Rows[0].Field<string>("NOME_USUARIO").ToString();
                 txtLoginUsuarioCadastro.Text = dataTable.Rows[0].Field<string>("LOGIN_USUARIO").ToString();
@@ -51,15 +51,15 @@ namespace CrudUsu.Interfaces
         {
             FormNovoUsuario formNovoUsuario = new FormNovoUsuario();
             formNovoUsuario.ShowDialog();
-            dgvUsuarios.DataSource = Db.CarregaGdvUsuario();
+            dgvUsuarios.DataSource = MetodosClientes.CarregaGdvUsuario();
         }
 
         private void btnSalvarAlteracoes_Click(object sender, EventArgs e)
         {
             Usuario u = new Usuario(Convert.ToInt32(txtId.Text), txtNomeUsuarioCadastro.Text, txtLoginUsuarioCadastro.Text, 
                 txtSenhaUsuarioCadastro.Text, cmbUsuarioStatusCadastro.Text, Convert.ToInt32(nmudNivelUsuarioCadastro.Value));
-            Db.AtualizarDadosUsuario(u);
-            dgvUsuarios.DataSource = Db.CarregaGdvUsuario();
+            MetodosClientes.AtualizarDadosUsuario(u);
+            dgvUsuarios.DataSource = MetodosClientes.CarregaGdvUsuario();
             MessageBox.Show("Alterações salvas com sucesso!");
         }
 
@@ -69,7 +69,7 @@ namespace CrudUsu.Interfaces
             DialogResult res = MessageBox.Show($"Deseja relamente excluir esse usuario {nomeUsuario}?", "Excluir?", MessageBoxButtons.YesNo);
             if(res == DialogResult.Yes)
             {
-                Db.ExcluirUsuario(txtId.Text);
+                MetodosClientes.ExcluirUsuario(txtId.Text);
                 //após excluir apenas remove a linha excluida ao invés de recarregar todo o grid
                 dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
             }

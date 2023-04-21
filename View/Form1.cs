@@ -1,4 +1,5 @@
 ﻿using CrudUsu.Interfaces;
+using CrudUsu.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,48 +20,18 @@ namespace CrudUsu
             FormLogin formLogin = new FormLogin(this);
             formLogin.ShowDialog();
         }
-
-        private void lOGONToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormLogin formLogin = new FormLogin(this);
-            formLogin.ShowDialog();
-        }
-
-        private void lOGOFFToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            lblAcesso.Text = "0";
-            //form1.lblNomeUsuario.Text = dataTable.Rows[0].ItemArray[2].ToString();
-            lblNomeUsuario.Text = "---";
-            Globais.nivel = 0;
-            Globais.logado = false;
-        }
-
-        private void BANCODEDADOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Globais.logado)
-            {
-                if(Globais.nivel >= 2)
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("ACESSO NEGADO! Você não possui permissão para acessar essa parte do sistema.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("É necessário ter um usuário logado");
-
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void nOVOUSUÁRIOToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NovoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNovoCliente formNovoCliente = new FormNovoCliente();
+            formNovoCliente.ShowDialog();
+        }
+
+        private void NovoUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Globais.logado)
             {
@@ -79,9 +50,10 @@ namespace CrudUsu
                 MessageBox.Show("É necessário ter um usuário logado");
 
             }
+
         }
 
-        private void gESTÃODEUSUÁRIOSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GestaoUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Globais.logado)
             {
@@ -100,26 +72,29 @@ namespace CrudUsu
                 MessageBox.Show("É necessário ter um usuário logado");
 
             }
+
         }
 
-        private void nOVOCLIENTEToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GestaoClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Globais.logado)
-            {
-                if (Globais.nivel >= 0)
-                {
 
-                }
-                else
-                {
-                    MessageBox.Show("ACESSO NEGADO! Você não possui permissão para acessar essa parte do sistema.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("É necessário ter um usuário logado");
+            FormGestaoClientes formGestaoClientes = new FormGestaoClientes();
+            formGestaoClientes.ShowDialog();
 
-            }
+        }
+
+        private void LogonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin(this);
+            formLogin.ShowDialog();
+        }
+
+        private void LogOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblAcesso.Text = "0";
+            lblNomeUsuario.Text = "---";
+            Globais.nivel = 0;
+            Globais.logado = false;
         }
     }
 }

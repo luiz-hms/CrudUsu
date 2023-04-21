@@ -51,12 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClienteController\ClienteController.cs" />
+    <Compile Include="ClienteBll\ClienteBll.cs" />
+    <Compile Include="UsuarioBll\UsuarioBll.cs" />
+    <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Db.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormGestaoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormGestaoClientes.Designer.cs">
+      <DependentUpon>FormGestaoClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormGestaoUsuarios.cs">
       <SubType>Form</SubType>
@@ -71,6 +81,12 @@
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Comum\Globais.cs" />
+    <Compile Include="View\FormNovoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormNovoCliente.Designer.cs">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormNovoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,15 +96,21 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Usuario.cs" />
-    <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="Controller\UsuarioController\UsuarioController.cs" />
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormGestaoClientes.resx">
+      <DependentUpon>FormGestaoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormGestaoUsuarios.resx">
       <DependentUpon>FormGestaoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormNovoCliente.resx">
+      <DependentUpon>FormNovoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormNovoUsuario.resx">
       <DependentUpon>FormNovoUsuario.cs</DependentUpon>
